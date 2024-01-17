@@ -41,7 +41,11 @@ const GameBoard = ({ onSelectSquare, turns }) => {
               {row.map((playerSymbol, colIndex) => (
                 <li key={colIndex}>
                   {/* pass the rowIndex , colIndex to APP.jsx function handleSelectSquare */}
-                  <button onClick={() => onSelectSquare(rowIndex, colIndex)}>
+                  <button
+                    onClick={() => onSelectSquare(rowIndex, colIndex)}
+                    // setting the button disable once clicked
+                    disabled={playerSymbol !== null}
+                  >
                     {playerSymbol}
                   </button>
                 </li>
