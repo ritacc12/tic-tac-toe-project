@@ -10,16 +10,16 @@ function App() {
   function handleSelectSquare(rowIndex, colIndex) {
     setActivePlayer((curActivePlayer) => (curActivePlayer === "X" ? "O" : "X"));
 
-    let currentPlayer = "X";
+    setGameTurns((prevTurns) => {
+      let currentPlayer = "X";
 
-    if (preTurns.length > 0 && preTurns[0].player === "X") {
-      currentPlayer = "O";
-    }
-
-    setGameTurns((preTurns) => {
+      if (prevTurns.length > 0 && prevTurns[0].player === "X") {
+        currentPlayer = "O";
+      }
+      // object are reference value in JS, cannot mutate directly and need to create a copy
       const updatedTurns = [
         { square: { row: rowIndex, col: colIndex }, player: currentPlayer },
-        ...preTurns,
+        ...prevTurns,
       ];
 
       return updatedTurns;
@@ -41,10 +41,7 @@ function App() {
             isActive={activePlayer === "O"}
           ></Player>
         </ol>
-        <GameBoard
-          onSelectSquare={handleSelectSquare}
-          activePlayerSymbol={activePlayer}
-        />
+        <GameBoard onSelectSquare={handleSelectSquare} turns={gameTurns} />
       </div>
       <Log />
     </main>
