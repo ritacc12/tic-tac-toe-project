@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-const Player = ({ initialName, symbol, isActive }) => {
+const Player = ({ initialName, symbol, isActive, onChangeName }) => {
   const [playerName, setPlayerName] = useState(initialName);
   const [isEditing, setIsEditing] = useState(false);
 
@@ -11,6 +11,10 @@ const Player = ({ initialName, symbol, isActive }) => {
 
   function handleChange(event) {
     setPlayerName(event.target.value);
+
+    if (isEditing) {
+      onChangeName(symbol, playerName);
+    }
   }
 
   let PlayerName = <span className="player-name">{playerName}</span>;
