@@ -7,14 +7,14 @@ const Player = ({ initialName, symbol, isActive, onChangeName }) => {
 
   function handleEditClick() {
     setIsEditing((editing) => !editing);
-  }
-
-  function handleChange(event) {
-    setPlayerName(event.target.value);
 
     if (isEditing) {
       onChangeName(symbol, playerName);
     }
+  }
+
+  function handleChange(event) {
+    setPlayerName(event.target.value);
   }
 
   let PlayerName = <span className="player-name">{playerName}</span>;
