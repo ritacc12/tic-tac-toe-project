@@ -1,13 +1,14 @@
 # Tic-Tac-Toe React Project
 
-This game is build with React
-![screenshot](https://github.com/ritacc12/tic-tac-toe-project/blob/main/public/Tic-Tac-Toe.png)
+This project Tic-Tac-Toe is built with React
 
 ## Feature
 
-- Tic-tac-toe game
 - Rename Player name
-- Record every gameTurn
+- Record symbol positions for each game round
+- After completing the game (win or draw) ,you can restart the game
+
+![screenshot](https://github.com/ritacc12/tic-tac-toe-project/blob/main/public/Tic-Tac-Toe.png)
 
 ## Installation
 
